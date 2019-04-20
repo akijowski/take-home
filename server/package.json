@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend for take home test",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js",
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akijowski/take-home.git"
+  },
+  "keywords": [
+    "node",
+    "test"
+  ],
+  "author": "Adam Kijowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akijowski/take-home/issues"
+  },
+  "homepage": "https://github.com/akijowski/take-home#readme",
+  "dependencies": {
+    "joi": "^14.3.1",
+    "moment": "^2.24.0",
+    "restify": "^8.3.0",
+    "restify-router": "^0.5.1",
+    "sqlite3": "^4.0.6",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "nodemon": "^1.18.11"
+  }
+}
