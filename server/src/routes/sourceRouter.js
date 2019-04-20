@@ -1,10 +1,11 @@
 import {Router} from 'restify-router';
-import SqlConnector from '../connector/sqlConnector';
+import {getConnector} from '../connector';
 import SourceRepository from '../repository/sourceRepository';
 import {validateSource} from '../validator/sourceValidator';
 import uuidv1 from 'uuid/v1';
+import moment from 'moment';
 
-let conn = new SqlConnector('./db.sqlite');
+let conn = getConnector();
 let sourceRepo = new SourceRepository(conn);
 
 let routerInstance = new Router();
@@ -83,13 +84,14 @@ routerInstance.get('/source/:id', (req, res, next) => {
 
 routerInstance.put('/source/:id', (req, res, next) => {
   let {params: {id}} = req;
-  let newSource = {id, ...req.body};
+  let updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
+  let newSource = {id, updated_at, ...req.body};
   let validResult = validateSource(newSource);
   if (!validResult.isValid) {
     res.json(400, {message: validResult.errorMessage});
     next();
   } else {
-    sourceRepo.updateSource({id, ...req.body})
+    sourceRepo.updateSource(newSource)
     .then(() => {
       sourceRepo.getSourceById(id)
       .then(row => {

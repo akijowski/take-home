@@ -4,7 +4,8 @@ export default class SourceRepository {
   }
 
   createSource(source) {
-    let paramList = [source.id, source.name, source.environment, source.encoding]
+    let {id, name, environmnet, encoding} = source;
+    let paramList = [id, name, environment, encoding]
     const sql = `INSERT INTO source(id, name, environment, encoding)
       VALUES (?, ?, ?, ?)`;
     return this.connector.run(sql, paramList);
@@ -21,8 +22,9 @@ export default class SourceRepository {
   }
 
   updateSource(source) {
-    const sql = `UPDATE source SET (name, environment, encoding) = (?, ?, ?) WHERE id = ?`;
-    let paramList = [source.name, source.environment, source.encoding, source.id];
+    let {name, environment, encoding, updated_at, id} = source;
+    const sql = `UPDATE source SET (name, environment, encoding, updated_at) = (?, ?, ?, ?) WHERE id = ?`;
+    let paramList = [name, environment, encoding, updated_at, id];
     return this.connector.run(sql, paramList);
   }
 
