@@ -10,7 +10,12 @@ const getSourceById = (sid) => {
     return axios.get(`${API_HOST}/source/${sid}`)
 };
 
+const getMessagesBySourceId = (sid) => {
+    return axios.get(`${API_HOST}/source/${sid}/message`)
+}
+
 export default {
     getAllSources,
-    getSourceById
+    getSourceById,
+    getMessagesBySourceId
 }

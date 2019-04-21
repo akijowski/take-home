@@ -5,7 +5,7 @@
 <script>
 import SourceDetailed from '@/components/SourceDetailed.vue';
 export default {
-  name: 'source',
+  name: 'sourceView',
   components: {
     SourceDetailed
   },
