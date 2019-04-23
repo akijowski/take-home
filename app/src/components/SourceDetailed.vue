@@ -13,7 +13,7 @@
 <script>
 import ApiUtils from "@/utils/apiUtils";
 import SourceForm from "./SourceForm.vue";
-import SourceMessageContainer from "./SourceMessageContainer.vue";
+import SourceMessageContainer from "./SourceMessage/SourceMessageContainer.vue";
 export default {
   data: function() {
     return {
@@ -40,7 +40,7 @@ export default {
       .then(resp => {
         this.loading = false;
         //eslint-disable-next-line
-        console.log(resp);
+        // console.log(resp);
         this.source = resp.data;
       })
       .catch(err => {

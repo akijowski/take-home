@@ -36,8 +36,6 @@ export default {
     ApiUtils.getAllSources()
       .then(resp => {
         this.loading = false;
-        // eslint-disable-next-line
-        console.log(resp);
         this.fullSourcesList = resp.data;
       })
       .catch(err => {

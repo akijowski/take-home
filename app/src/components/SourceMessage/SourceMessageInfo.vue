@@ -5,15 +5,15 @@
         <i class="list alternate outline icon"></i>
         Enqueued: {{ messageStats.enqueued }}
       </div>
-      <div class="ui label">
+      <div class="ui red label">
         <i class="exclamation triangle icon"></i>
         Error: {{ messageStats.error }}
       </div>
-      <div class="ui label">
+      <div class="ui green label">
         <i class="check icon"></i>
         Finished: {{ messageStats.finished }}
       </div>
-      <div class="ui label">
+      <div class="ui blue label">
         <i class="hourglass half icon"></i>
         Processing: {{ messageStats.processing }}
       </div>

@@ -1,5 +1,9 @@
 <template>
-  <div v-if="loading"></div>
+  <div v-if="loading">
+    <div class="ui active inverted dimmer">
+      <div class="ui text loader">Loading...</div>
+    </div>
+  </div>
   <div v-else>
     <SourceMessageInfo :messageList="messageList"/>
     <SourceMessageList :messageList="messageList"/>
@@ -9,7 +13,7 @@
 <script>
 import ApiUtils from "@/utils/apiUtils";
 import SourceMessageList from "./SourceMessageList.vue";
-import SourceMessageInfo from './SourceMessageInfo.vue';
+import SourceMessageInfo from "./SourceMessageInfo.vue";
 export default {
   props: {
     sid: { type: String, required: true }
@@ -30,7 +34,7 @@ export default {
       .then(resp => {
         this.loading = false;
         // eslint-disable-next-line
-        console.log(resp);
+        // console.log(resp);
         this.messageList = resp.data;
       })
       .catch(err => {
